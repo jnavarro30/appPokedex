@@ -1,0 +1,67 @@
+figure {
+    position: relative;
+    margin-top: 2rem;
+    display: grid;
+    align-items: center;
+}
+
+.img__pokedex {
+    width: 100%;
+}
+
+.img__intro {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    margin-top: 10%;
+}
+
+.poke__info {
+    position: absolute;
+    top: 28%;
+    left: 17%;
+    width: 68%;
+    height: 31%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+    "poke poke poke name"
+    "poke poke poke type"
+    "poke poke poke ht"
+    ". id . wt"; 
+}
+
+.poke__info > * {
+   margin-right: 0.2rem;
+}
+
+.img__pokemon {
+    outline: none;
+    width: 70%;
+    margin: 0 auto;
+    grid-area: poke;
+}
+
+.poke__height {
+    grid-area: ht;
+}
+
+.poke__weight {
+    grid-area: wt;
+}
+
+.poke__name {
+    grid-area: name;
+}
+
+.poke__type {
+    grid-area: type;
+}
+
+.poke__id {
+    grid-area: id;
+}
+
+
+
+

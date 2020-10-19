@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: url("../media/images/pokeball.jpg");
+}
+
+figure {
+  position: relative;
+  margin-top: 2rem;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.img__pokedex {
+  width: 100%;
+}
+
+.img__intro {
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  margin-top: 10%;
+}
+
+.poke__info {
+  position: absolute;
+  top: 28%;
+  left: 17%;
+  width: 68%;
+  height: 31%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: "poke poke poke name" "poke poke poke type" "poke poke poke ht" ". id . wt";
+}
+
+.poke__info > * {
+  margin-right: 0.2rem;
+}
+
+.img__pokemon {
+  outline: none;
+  width: 70%;
+  margin: 0 auto;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: poke;
+}
+
+.poke__height {
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
+  grid-area: ht;
+}
+
+.poke__weight {
+  -ms-grid-row: 4;
+  -ms-grid-column: 4;
+  grid-area: wt;
+}
+
+.poke__name {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: name;
+}
+
+.poke__type {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  grid-area: type;
+}
+
+.poke__id {
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  grid-area: id;
+}
+
+.btn {
+  position: absolute;
+  opacity: 0;
+}
+
+.blue {
+  height: 9%;
+  width: 13%;
+  left: 11%;
+  top: 71%;
+}
+
+.up, .down, .left, .right {
+  height: 7%;
+  width: 10%;
+  opacity: 0;
+}
+
+.up {
+  left: 73%;
+  top: 72%;
+}
+
+.down {
+  left: 73%;
+  top: 83%;
+}
+
+.left {
+  left: 65%;
+  top: 78%;
+}
+
+.right {
+  left: 83%;
+  top: 78%;
+}
+
+.red {
+  height: 5%;
+  width: 8%;
+  left: 24.5%;
+  top: 62%;
+}
+
+.green {
+  height: 5%;
+  width: 20%;
+  left: 24.5%;
+  top: 72.5%;
+}
+
+.orange {
+  height: 5%;
+  width: 20%;
+  left: 45%;
+  top: 72.5%;
+}
+
+.yellow {
+  position: absolute;
+  background: #FBFB05;
+  font-size: 1.2rem;
+  color: Black;
+  opacity: 0.7;
+  height: 9%;
+  width: 32%;
+  left: 25%;
+  top: 83%;
+  border: none;
+  outline: none;
+  font-weight: bolder;
+}
+
+@media (min-width: 600px) {
+  .poke__info, .yellow {
+    font-size: 2rem;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

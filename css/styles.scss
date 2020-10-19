@@ -1,0 +1,22 @@
+// settings
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('../media/images/pokeball.jpg');
+}
+
+// partials
+@import 'partials/figure';
+
+@import 'partials/buttons';
+
+// responsive
+@media (min-width: 600px) {
+    .poke__info, .yellow {
+        font-size: 2rem;
+    }
+}
