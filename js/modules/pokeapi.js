@@ -58,6 +58,7 @@ const PokeApi = (_ => {
             pokeId = 1; 
             spriteIndex = 0;
             yellowInputEl.value = '';
+            showAbilities = false;
             pokeApi(pokeId);
         });
 
