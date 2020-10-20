@@ -9,7 +9,9 @@ const Intro = (_ => {
         const blueBtn = document.querySelector('.blue');
         blueBtn.addEventListener('click', _ => {
             PokeApi.init();
-            document.querySelector('.yellow').disabled = false;
+            const yellowInputEl = document.querySelector('.yellow');
+            yellowInputEl.disabled = false;
+            yellowInputEl.placeholder = 'Name or ID';
         }, {
             once: true
         });

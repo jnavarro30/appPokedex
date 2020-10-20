@@ -40,7 +40,7 @@ const PokeApi = (_ => {
 
         blueBtnEl.addEventListener('click', _ => {
             let num = Number(yellowInputEl.value),
-                str = yellowInputEl.value;
+                str = yellowInputEl.value.toLowerCase();
 
             if (Number.isInteger(num)) {
                 pokeId = num;
@@ -57,6 +57,7 @@ const PokeApi = (_ => {
         redBtnEl.addEventListener('click', _ => {
             pokeId = 1; 
             spriteIndex = 0;
+            yellowInputEl.value = '';
             pokeApi(pokeId);
         });
 
