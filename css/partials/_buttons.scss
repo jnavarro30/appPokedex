@@ -1,6 +1,14 @@
 .btn {
     position: absolute;
     opacity: 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.yellow:hover {
+    cursor: pointer;
 }
 
 .blue {

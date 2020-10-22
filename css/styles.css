@@ -93,6 +93,14 @@ figure {
   opacity: 0;
 }
 
+.btn:hover {
+  cursor: pointer;
+}
+
+.yellow:hover {
+  cursor: pointer;
+}
+
 .blue {
   height: 9%;
   width: 13%;
