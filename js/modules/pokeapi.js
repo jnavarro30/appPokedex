@@ -1,21 +1,23 @@
+import soundEffects from "./sounds.js";
+
 const PokeApi = (_ => {
     const state = {
-        pokeId: 1,
-        pokeName: 'bulbasaur',
-        spriteIndex: 0,
-        spriteArr: ['front_default', 'back_default'],
-        showAbilities: false
+        pokemonId: 1,
+        pokemonName: 'bulbasaur',
+        pokemonSpriteIndex: 0,
+        pokemonSpriteArray: ['front_default', 'back_default'],
+        showPokemonAbilities: false
     };
 
-    let { pokeId, pokeName, spriteIndex, spriteArr, showAbilities } = state;
+    let { pokemonId, pokemonName, pokemonSpriteIndex, pokemonSpriteArray, showPokemonAbilities } = state;
 
     const init = _ => {
-        renderHTML();
-        listeners();
+        renderPokemonStats();
+        enableGamePadButtons();
         pokeApi(1);
     };
 
-    const renderHTML = _ => {
+    const renderPokemonStats = _ => {
         const pokedexScreen = document.querySelector('.poke__info');
         pokedexScreen.innerHTML = `
             <p class="poke__height"></p>
@@ -25,89 +27,105 @@ const PokeApi = (_ => {
             <p class="poke__id"></p>
             <img src='' class='img__pokemon'>
         `;
-    };
+    };    
 
-    const listeners = _ => {
-        const upBtnEl = document.querySelector('.up'),
-              downBtnEl = document.querySelector('.down'),
-              leftBtnEl = document.querySelector('.left'),
-              rightBtnEl = document.querySelector('.right'),
-              redBtnEl = document.querySelector('.red'),
-              blueBtnEl = document.querySelector('.blue'),
-              greenBtnEl = document.querySelector('.green'),
-              orangeBtnEl = document.querySelector('.orange'),
-              yellowInputEl = document.querySelector('.yellow');
+    const enableGamePadButtons = _ => {
+        const gamePadUpButton = document.querySelector('.up'),
+              gamePadDownButton = document.querySelector('.down'),
+              gamePadLeftButton = document.querySelector('.left'),
+              gamePadRightButton = document.querySelector('.right'),
+              gamePadRedButton = document.querySelector('.red'),
+              gamePadBlueButton = document.querySelector('.blue'),
+              gamePadGreenButton = document.querySelector('.green'),
+              gamePadOrangeButton = document.querySelector('.orange'),
+              gamePadYellowPad = document.querySelector('.yellow');
 
-        blueBtnEl.addEventListener('click', _ => {
-            let num = Number(yellowInputEl.value),
-                str = yellowInputEl.value.toLowerCase();
+        gamePadYellowPad.addEventListener('click', _ => {
+            let btnSoundEffect = new Audio(soundEffects.yellowInputUrl).play();
+        });
+
+        gamePadYellowPad.addEventListener('keypress', _ => {
+            let btnSoundEffect = new Audio(soundEffects.yellowInputUrl).play();
+        });
+
+        gamePadBlueButton.addEventListener('click', _ => {
+            let num = Number(gamePadYellowPad.value),
+                str = gamePadYellowPad.value.toLowerCase();
 
             if (Number.isInteger(num)) {
-                pokeId = num;
-                spriteIndex = 0;
-                pokeApi(pokeId);
+                pokemonId = num;
+                pokemonSpriteIndex = 0;
+                pokeApi(pokemonId);
             } 
             else {
-                pokeName = str;
-                spriteIndex = 0;
-                pokeApi(pokeName);
+                pokemonName = str;
+                pokemonSpriteIndex = 0;
+                pokeApi(pokemonName);
             }
+            let btnSoundEffect = new Audio(soundEffects.blueBtnUrl).play();
         });
 
-        redBtnEl.addEventListener('click', _ => {
-            pokeId = 1; 
-            spriteIndex = 0;
-            yellowInputEl.value = '';
-            showAbilities = false;
-            pokeApi(pokeId);
+        gamePadRedButton.addEventListener('click', _ => {
+            pokemonId = 1; 
+            pokemonSpriteIndex = 0;
+            gamePadYellowPad.value = '';
+            showPokemonAbilities = false;
+            pokeApi(pokemonId);
+            let btnSoundEffect = new Audio(soundEffects.redBtnUrl).play();
         });
 
-        greenBtnEl.addEventListener('click', _ => {
-            showAbilities = true;
-            pokeApi(pokeId);
+        gamePadGreenButton.addEventListener('click', _ => {
+            showPokemonAbilities = true;
+            pokeApi(pokemonId);
+            let btnSoundEffect = new Audio(soundEffects.greenOrangeBtnsUrl).play();
         });
     
-        orangeBtnEl.addEventListener('click', _ => {
-            showAbilities = false;
-            pokeApi(pokeId);
+        gamePadOrangeButton.addEventListener('click', _ => {
+            showPokemonAbilities = false;
+            pokeApi(pokemonId);
+            let btnSoundEffect = new Audio(soundEffects.greenOrangeBtnsUrl).play();
         });
 
-        upBtnEl.addEventListener('click', _ => {
-            showAbilities = false;
-            spriteIndex = 0;
-            pokeId++;
-            pokeApi(pokeId);
+        gamePadUpButton.addEventListener('click', _ => {
+            showPokemonAbilities = false;
+            pokemonSpriteIndex = 0;
+            pokemonId++;
+            pokeApi(pokemonId);
+            let btnSoundEffect = new Audio(soundEffects.arrowBtnsUrl).play();
         });
 
-        downBtnEl.addEventListener('click', _ => {
-            showAbilities = false;
-            spriteIndex = 0;
-            pokeId--;
-            if(!pokeId) pokeId = 1;
-            pokeApi(pokeId);
+        gamePadDownButton.addEventListener('click', _ => {
+            showPokemonAbilities = false;
+            pokemonSpriteIndex = 0;
+            pokemonId--;
+            if(!pokemonId) pokemonId = 1;
+            pokeApi(pokemonId);
+            let btnSoundEffect = new Audio(soundEffects.arrowBtnsUrl).play();
         });
 
-        leftBtnEl.addEventListener('click', _ => {
-            spriteIndex--;
-            if (spriteIndex < 0) spriteIndex = 1; 
-            pokeApi(pokeId);
+        gamePadLeftButton.addEventListener('click', _ => {
+            pokemonSpriteIndex--;
+            if (pokemonSpriteIndex < 0) pokemonSpriteIndex = 1; 
+            pokeApi(pokemonId);
+            let btnSoundEffect = new Audio(soundEffects.arrowBtnsUrl).play();
         });
 
-        rightBtnEl.addEventListener('click', _ => {
-            spriteIndex++;
-            if (spriteIndex > 1) spriteIndex = 0; 
-            pokeApi(pokeId);
+        gamePadRightButton.addEventListener('click', _ => {
+            pokemonSpriteIndex++;
+            if (pokemonSpriteIndex > 1) pokemonSpriteIndex = 0; 
+            pokeApi(pokemonId);
+            let btnSoundEffect = new Audio(soundEffects.arrowBtnsUrl).play();
         });
     };
 
-    const pokeApi = async idOrName => {
-        const URL = `https://pokeapi.co/api/v2/pokemon/${idOrName}`,
+    const pokeApi = async nameOrId => {
+        const URL = `https://pokeapi.co/api/v2/pokemon/${nameOrId}`,
               request = await fetch(URL),
               data = await request.json();
 
-        pokeId = data.id;
+        pokemonId = data.id;
 
-        const displayAbilities = boolean => {
+        const displayPokemonAbilities = boolean => {
             if (boolean) {
                 const pokedexScreen = document.querySelector('.poke__info');
                 pokedexScreen.innerHTML = `
@@ -116,24 +134,24 @@ const PokeApi = (_ => {
                         <p>${data.abilities[1].ability.name.toUpperCase()}</p>
                     </div>
                 `;
-            } else renderHTML();
+            } else renderPokemonStats();
         };
 
-        displayAbilities(showAbilities);
+        displayPokemonAbilities(showPokemonAbilities);
 
         const pokemonEl = document.querySelector('.img__pokemon'),
-              pokemonId = document.querySelector('.poke__id'),
-              pokemonName = document.querySelector('.poke__name'),
-              pokemonType = document.querySelector('.poke__type'),
-              pokemonHeight = document.querySelector('.poke__height'),
-              pokemonWeight = document.querySelector('.poke__weight');
+              pokemonIdEl = document.querySelector('.poke__id'),
+              pokemonNameEl = document.querySelector('.poke__name'),
+              pokemonTypeEl = document.querySelector('.poke__type'),
+              pokemonHeightEl = document.querySelector('.poke__height'),
+              pokemonWeightEl = document.querySelector('.poke__weight');
 
-        pokemonEl.src = data.sprites[spriteArr[spriteIndex]];
-        pokemonId.textContent = `# ${data.id}`;
-        pokemonName.textContent = data.name.toUpperCase();
-        pokemonType.textContent = data.types[0].type.name.toUpperCase();
-        pokemonHeight.textContent = `HT ${data.height}`;
-        pokemonWeight.textContent = `WT ${data.weight}`; 
+        pokemonEl.src = data.sprites[pokemonSpriteArray[pokemonSpriteIndex]];
+        pokemonIdEl.textContent = `# ${data.id}`;
+        pokemonNameEl.textContent = data.name.toUpperCase();
+        pokemonTypeEl.textContent = data.types[0].type.name.toUpperCase();
+        pokemonHeightEl.textContent = `HT ${data.height}`;
+        pokemonWeightEl.textContent = `WT ${data.weight}`; 
     };
 
     return {

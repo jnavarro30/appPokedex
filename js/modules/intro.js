@@ -1,23 +1,27 @@
 import PokeApi from './pokeapi.js';
+import soundEffects from "./sounds.js";
+
 const Intro = (_ => {
     const init = _ => {
-        renderIntro();
-        listeners();
+        renderGamePad();
+        enableGamePadStartButton();
     };
 
-    const listeners = _ => {
-        const blueBtn = document.querySelector('.blue');
-        blueBtn.addEventListener('click', _ => {
+    const enableGamePadStartButton = _ => {
+        const gamePadBlueButton = document.querySelector('.blue');
+        gamePadBlueButton.addEventListener('click', _ => {
             PokeApi.init();
-            const yellowInputEl = document.querySelector('.yellow');
-            yellowInputEl.disabled = false;
-            yellowInputEl.placeholder = 'Name or ID';
+            const gamePadYellowPad = document.querySelector('.yellow');
+            gamePadYellowPad.disabled = false;
+            gamePadYellowPad.placeholder = 'Name or ID';
+            let btnSoundEffect = new Audio(soundEffects.blueBtnUrl).play();
         }, {
             once: true
         });
     };
 
-    const renderIntro = _ => {
+    const renderGamePad = _ => {
+        // render without functionallity
         const containerEl = document.querySelector('.container');
         containerEl.innerHTML = `
         <figure>
