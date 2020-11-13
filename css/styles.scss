@@ -7,10 +7,13 @@
 
 body {
     background: url('../media/images/pokeball.jpg');
+    font-family: 'Work Sans', sans-serif;
 }
 
 // partials
 @import 'partials/figure';
+
+@import 'partials/playlist';
 
 @import 'partials/buttons';
 

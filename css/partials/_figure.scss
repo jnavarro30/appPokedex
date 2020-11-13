@@ -18,17 +18,27 @@ figure {
 
 .poke__info {
     position: absolute;
-    top: 28%;
-    left: 17%;
-    width: 68%;
-    height: 31%;
+    top: 27.7%;
+    left: 15.6%;
+    width: 71%;
+    height: 32%;
     display: grid;
+    border-radius: 2%;
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
     "poke poke poke name"
     "poke poke poke type"
     "poke poke poke ht"
     ". id . wt"; 
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.dark__mode {
+    background: black;
+    color: white;
 }
 
 .poke__info > * {
@@ -37,7 +47,8 @@ figure {
 
 .img__pokemon {
     outline: none;
-    width: 70%;
+    height: 100%;
+    width: 100%;
     margin: 0 auto;
     grid-area: poke;
 }
@@ -51,6 +62,8 @@ figure {
 }
 
 .poke__name {
+    margin-top: 1rem;
+    margin-right: 1rem;
     grid-area: name;
 }
 
@@ -61,6 +74,7 @@ figure {
 .poke__id {
     grid-area: id;
 }
+
 
 
 

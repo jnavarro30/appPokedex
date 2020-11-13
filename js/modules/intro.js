@@ -1,5 +1,5 @@
-import PokeApi from './pokeapi.js';
-import soundEffects from "./sounds.js";
+import PokedexMain from './pokedex_main.js';
+import {soundEffects} from "./sounds.js";
 
 const Intro = (_ => {
     const init = _ => {
@@ -10,11 +10,11 @@ const Intro = (_ => {
     const enableGamePadStartButton = _ => {
         const gamePadBlueButton = document.querySelector('.blue');
         gamePadBlueButton.addEventListener('click', _ => {
-            PokeApi.init();
+            PokedexMain.init();
             const gamePadYellowPad = document.querySelector('.yellow');
             gamePadYellowPad.disabled = false;
             gamePadYellowPad.placeholder = 'Name or ID';
-            let btnSoundEffect = new Audio(soundEffects.blueBtnUrl).play();
+            let btnSoundEffect = new Audio(soundEffects.blueButton).play();
         }, {
             once: true
         });
@@ -34,6 +34,7 @@ const Intro = (_ => {
             <button class="btn down"></button>
             <button class="btn left"></button>
             <button class="btn right"></button>
+            <button class="btn speaker"></button>
             <input type="text" class="yellow">
             <div class="poke__info">
                 <img class='img__intro' src='media/images/intro.png'>
@@ -48,4 +49,4 @@ const Intro = (_ => {
     };
 })();
 
-export default Intro;
+export default Intro.init();

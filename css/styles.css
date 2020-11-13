@@ -7,6 +7,7 @@
 
 body {
   background: url("../media/images/pokeball.jpg");
+  font-family: 'Work Sans', sans-serif;
 }
 
 figure {
@@ -32,15 +33,25 @@ figure {
 
 .poke__info {
   position: absolute;
-  top: 28%;
-  left: 17%;
-  width: 68%;
-  height: 31%;
+  top: 27.7%;
+  left: 15.6%;
+  width: 71%;
+  height: 32%;
   display: -ms-grid;
   display: grid;
+  border-radius: 2%;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
       grid-template-areas: "poke poke poke name" "poke poke poke type" "poke poke poke ht" ". id . wt";
+}
+
+.poke__info:hover {
+  cursor: pointer;
+}
+
+.dark__mode {
+  background: black;
+  color: white;
 }
 
 .poke__info > * {
@@ -49,7 +60,8 @@ figure {
 
 .img__pokemon {
   outline: none;
-  width: 70%;
+  height: 100%;
+  width: 100%;
   margin: 0 auto;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
@@ -71,6 +83,8 @@ figure {
 }
 
 .poke__name {
+  margin-top: 1rem;
+  margin-right: 1rem;
   -ms-grid-row: 1;
   -ms-grid-column: 4;
   grid-area: name;
@@ -86,6 +100,33 @@ figure {
   -ms-grid-row: 4;
   -ms-grid-column: 2;
   grid-area: id;
+}
+
+.pokemon__playlist {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  list-style-type: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.selected {
+  color: red;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px yellow;
+}
+
+.dark {
+  color: yellow;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px red;
 }
 
 .btn {
@@ -168,6 +209,13 @@ figure {
   border: none;
   outline: none;
   font-weight: bolder;
+}
+
+.speaker {
+  height: 8%;
+  width: 22%;
+  left: 61%;
+  top: 60.5%;
 }
 
 @media (min-width: 600px) {

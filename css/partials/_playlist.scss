@@ -1,0 +1,23 @@
+.pokemon__playlist {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    list-style-type: none;
+    align-items: center;
+}
+
+.selected {
+    color: red;
+    text-transform: uppercase;
+    text-shadow: 0 0 6px yellow;
+}
+
+.dark {
+    color: yellow;
+    text-transform: uppercase;
+    text-shadow: 0 0 6px red;
+}
+
