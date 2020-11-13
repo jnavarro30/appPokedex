@@ -131,7 +131,8 @@ figure {
 
 .btn {
   position: absolute;
-  opacity: 0;
+  opacity: 1;
+  outline: none;
 }
 
 .btn:hover {
@@ -152,7 +153,7 @@ figure {
 .up, .down, .left, .right {
   height: 7%;
   width: 10%;
-  opacity: 0;
+  opacity: 1;
 }
 
 .up {
@@ -216,6 +217,201 @@ figure {
   width: 22%;
   left: 61%;
   top: 60.5%;
+}
+
+.poke__info::after {
+  color: white;
+  font-weight: bolder;
+  font-size: 120%;
+  background: rgba(0, 0, 0, 0.4);
+  content: "SCREEN:LIGHT/DARK";
+}
+
+@media (max-width: 300px) {
+  .poke__info::after {
+    font-size: 90%;
+  }
+}
+
+@media (min-width: 700px) {
+  .poke__info::after {
+    font-size: 150%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .poke__info::after {
+    font-size: 200%;
+  }
+}
+
+.left::after {
+  color: white;
+  font-weight: bolder;
+  font-size: 120%;
+  background: rgba(0, 0, 0, 0.4);
+  content: 'CONTROLS';
+}
+
+@media (max-width: 300px) {
+  .left::after {
+    font-size: 90%;
+  }
+}
+
+@media (min-width: 700px) {
+  .left::after {
+    font-size: 150%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .left::after {
+    font-size: 200%;
+  }
+}
+
+.blue::after {
+  color: white;
+  font-weight: bolder;
+  font-size: 120%;
+  background: rgba(0, 0, 0, 0.4);
+  content: 'ENTER';
+}
+
+@media (max-width: 300px) {
+  .blue::after {
+    font-size: 90%;
+  }
+}
+
+@media (min-width: 700px) {
+  .blue::after {
+    font-size: 150%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .blue::after {
+    font-size: 200%;
+  }
+}
+
+.red::after {
+  color: white;
+  font-weight: bolder;
+  font-size: 120%;
+  background: rgba(0, 0, 0, 0.4);
+  content: 'RESET';
+}
+
+@media (max-width: 300px) {
+  .red::after {
+    font-size: 90%;
+  }
+}
+
+@media (min-width: 700px) {
+  .red::after {
+    font-size: 150%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .red::after {
+    font-size: 200%;
+  }
+}
+
+.green::after {
+  color: white;
+  font-weight: bolder;
+  font-size: 120%;
+  background: rgba(0, 0, 0, 0.4);
+  content: 'RETRO';
+}
+
+@media (max-width: 300px) {
+  .green::after {
+    font-size: 90%;
+  }
+}
+
+@media (min-width: 700px) {
+  .green::after {
+    font-size: 150%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .green::after {
+    font-size: 200%;
+  }
+}
+
+.orange::after {
+  color: white;
+  font-weight: bolder;
+  font-size: 120%;
+  background: rgba(0, 0, 0, 0.4);
+  content: 'MUSIC';
+}
+
+@media (max-width: 300px) {
+  .orange::after {
+    font-size: 90%;
+  }
+}
+
+@media (min-width: 700px) {
+  .orange::after {
+    font-size: 150%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .orange::after {
+    font-size: 200%;
+  }
+}
+
+.speaker::after {
+  color: white;
+  font-weight: bolder;
+  font-size: 120%;
+  background: rgba(0, 0, 0, 0.4);
+  content: 'PLAY/PAUSE';
+}
+
+@media (max-width: 300px) {
+  .speaker::after {
+    font-size: 90%;
+  }
+}
+
+@media (min-width: 700px) {
+  .speaker::after {
+    font-size: 150%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .speaker::after {
+    font-size: 200%;
+  }
+}
+
+.instructions {
+  background: transparent;
+  border: none;
+}
+
+.no-after::after {
+  display: none;
+}
+
+.opacity {
+  opacity: 0;
 }
 
 @media (min-width: 600px) {

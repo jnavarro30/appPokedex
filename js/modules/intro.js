@@ -8,13 +8,26 @@ const Intro = (_ => {
     };
 
     const enableGamePadStartButton = _ => {
-        const gamePadBlueButton = document.querySelector('.blue');
-        gamePadBlueButton.addEventListener('click', _ => {
+        const blueStartButton = document.querySelector('.blue');
+        let time = 0;
+        let timer = setInterval(_ => {
+            time++;
+            console.log(time);
+            blueStartButton.style.transform = `rotate(${time}deg)`;
+        }, 10);
+        blueStartButton.addEventListener('click', _ => {
             PokedexMain.init();
-            const gamePadYellowPad = document.querySelector('.yellow');
-            gamePadYellowPad.disabled = false;
-            gamePadYellowPad.placeholder = 'Name or ID';
+            clearInterval(timer);
+            const yellowInputPad = document.querySelector('.yellow');
+            yellowInputPad.disabled = false;
+            yellowInputPad.placeholder = 'Name or ID';
             let btnSoundEffect = new Audio(soundEffects.blueButton).play();
+
+            // remove instruction
+            document.querySelectorAll('button').forEach(btn => btn.classList.remove('instructions'));
+            document.querySelectorAll('.btn').forEach(btn => btn.classList.add('opacity'));
+            document.querySelectorAll('.btn').forEach(btn => btn.classList.add('no-after'));
+            document.querySelector('.poke__info').classList.add('no-after');
         }, {
             once: true
         });
@@ -35,13 +48,14 @@ const Intro = (_ => {
             <button class="btn left"></button>
             <button class="btn right"></button>
             <button class="btn speaker"></button>
-            <input type="text" class="yellow">
+            <input type="text" class="yellow" placeholder="Lookup">
             <div class="poke__info">
                 <img class='img__intro' src='media/images/intro.png'>
             </div>
         </figure>
         `;
         document.querySelector('.yellow').disabled = true;
+        document.querySelectorAll('button').forEach(btn => btn.classList.add('instructions'));
     };
 
     return {

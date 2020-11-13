@@ -1,6 +1,7 @@
 .btn {
     position: absolute;
-    opacity: 0;
+    opacity: 1;
+    outline: none;
 
     &:hover {
         cursor: pointer;
@@ -21,7 +22,7 @@
 .up, .down, .left, .right {
     height: 7%;
     width: 10%;
-    opacity: 0;
+    opacity: 1;
 }
 
 .up {
@@ -88,4 +89,70 @@ $pokedexYellow: #FBFB05;
     width: 22%;
     left: 61%;
     top: 60.5%;
+}
+
+@mixin controls {
+    color: white;
+    font-weight: bolder;
+    font-size: 120%;
+    background: rgba(0,0,0,0.4);
+
+    @media (max-width: 300px) {
+        font-size: 90%;
+        }
+
+    @media (min-width: 700px) {
+        font-size: 150%;
+        }
+
+    @media (min-width: 1000px) {
+    font-size: 200%;
+    }
+}
+
+.poke__info::after {
+    @include controls;
+    content: "SCREEN:LIGHT/DARK";
+}
+
+.left::after {
+    @include controls;
+    content: 'CONTROLS';
+}
+.blue::after {
+    @include controls;
+    content: 'ENTER';
+}
+
+.red::after {
+    @include controls;
+    content: 'RESET';
+}
+
+.green::after {
+    @include controls;
+    content: 'RETRO';
+}
+
+.orange::after {
+    @include controls;
+    content: 'MUSIC';
+}
+
+.speaker::after {
+    @include controls;
+    content: 'PLAY/PAUSE';
+}
+
+.instructions {
+    background: transparent;
+    border: none;
+}
+
+.no-after::after {
+    display: none;
+}
+
+.opacity {
+    opacity: 0;
 }
