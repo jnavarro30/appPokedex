@@ -90,8 +90,16 @@ const PokedexMain = (_ => {
 
         //listeners
         speakerPlayPauseMusicButton.addEventListener('click', _ => {
-            let screenSoundEffect = new Audio(soundEffects.speakerButton).play();
-            currentlyPlayingTrack.paused ? currentlyPlayingTrack.play() : currentlyPlayingTrack.pause();
+            let screenSoundEffect = new Audio(soundEffects.speakerButton).play(),
+                currentTrackSrc = currentlyPlayingTrack.src,
+                selectedTrackSrc = trackURLArray[currentlyPlayingIndex];
+            
+            if (currentTrackSrc == selectedTrackSrc) {
+                currentlyPlayingTrack.paused ? currentlyPlayingTrack.play() : currentlyPlayingTrack.pause();
+            } else {
+                currentlyPlayingTrack.src = trackURLArray[currentlyPlayingIndex];
+                currentlyPlayingTrack.play();
+            }
         });
 
         pokedexScreen.addEventListener('click', _ => {
@@ -121,6 +129,7 @@ const PokedexMain = (_ => {
             let btnSoundEffect = new Audio(soundEffects.redButton).play();
             pokemonId = 1;
             currentlyPlayingIndex = 0;
+            currentlyPlayingTrack.src = trackURLArray[currentlyPlayingIndex];
             yellowInputPad .value = '';
             classicSpriteStyle = false;
             themeMusicScreen = false;
@@ -160,7 +169,6 @@ const PokedexMain = (_ => {
             currentlyPlayingIndex -= 2;
             if(currentlyPlayingIndex < 0) currentlyPlayingIndex = 1;
             renderPokemonScreen();
-            console.log(currentlyPlayingIndex);
         };
 
         const downButtonFunc = _ => {
@@ -168,21 +176,18 @@ const PokedexMain = (_ => {
             currentlyPlayingIndex += 2;
             if(currentlyPlayingIndex > 9) currentlyPlayingIndex = 8;
             renderPokemonScreen();
-            console.log(currentlyPlayingIndex);
         };
 
         const leftButtonFunc = _ => {
             if (currentlyPlayingIndex % 2 == 0) return;
             currentlyPlayingIndex--;
             renderPokemonScreen();
-            console.log(currentlyPlayingIndex);
         };
 
         const rightButtonFunc = _ => {
             if (currentlyPlayingIndex % 2) return;
             currentlyPlayingIndex++;
             renderPokemonScreen();
-            console.log(currentlyPlayingIndex);
         };
 
         // toggle arrow button listeners

@@ -26,6 +26,3 @@ const trackURLArray = Object.values(musicTracks),
 export { soundEffects, trackURLArray, trackNameArray };
 
 
-// add theme song, make the speaker a button
-// empty yellow input bug
-// request or data error, use try or promise
